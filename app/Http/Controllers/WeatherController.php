@@ -45,31 +45,12 @@ class WeatherController extends Controller
         return redirect()->back()->with('success', 'City added successfully.');
     }
 
-    public function setRemove(Request $request){
+    public function remove(Request $request)
+    {
+        $city = $request->input('city');
 
-        $action = $request->input('action');
-        $citySet = $request->input('citySet');
-        $cityRemove = $request->input('cityRemove');
-
-        if ($action === 'Set'){
-            History::create([
-                'city' => $citySet,
-            ]);
-            return redirect()->back();
-        } elseif ($action === 'Remove'){
-            History::where('city', $cityRemove)->delete();
-            return redirect()->back();
-        }
-
-
-
-
+        History::where('city', $city)->delete();
+        return redirect()->back();
     }
-
-
-
-
-
-
 
 }

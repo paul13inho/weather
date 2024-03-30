@@ -2,7 +2,7 @@
 @tailwind components;
 
 h1{
-    @apply text-3xl font-bold underline bg-blue-500;
+    @apply text-3xl font-bold underline;
 }
 
 
